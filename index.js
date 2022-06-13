@@ -30,6 +30,6 @@ app.use('/api/veterinarios',routerVeterinario)
 app.use('/api/pacientes',routerPacientes)
 const PORT = process.env.PORT || 4000;
 
-app.listen(4000,()=>{ //Usamos el puerto 4000 ya que el 3000 se suele usar en el front
+app.listen(PORT,()=>{ //Usamos el puerto 4000 ya que el 3000 se suele usar en el front
     console.log(`Servidor funcionando en el puerto ${PORT}`); 
 })
