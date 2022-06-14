@@ -2,6 +2,7 @@ import nodemailer from 'nodemailer'
 
 const emailRegistro = async (datos)=>{
     // Credenciales
+    /*
     let transporter = nodemailer.createTransport({
         host: process.env.EMAIL_HOST,
         port: process.env.PORT_HOST,
@@ -10,11 +11,19 @@ const emailRegistro = async (datos)=>{
           pass: process.env.EMAIL_PASS 
         }
       });
+      */
+      const client = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS
+        }
+    });
 
       const {nombre, correo, token} = datos
 
 //Enviar El MAIL
-      const info = await transporter.sendMail({
+      const info = await client.sendMail({
           from: "APV - Administrador de Pacientes de Veterinaria ",
           to: correo ,
           subject: "Confirma tu cuenta en APV",
